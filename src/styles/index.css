@@ -1,12 +1,148 @@
-
-/* 
-
-    You can write your own styles here...
-    
-    
+/* You can write your own styles here...     
     ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
+    other sylesheets into your bunde as well, e.j:  
     import 'relative/path/to/stylesheet.scss';
-
 */
+
+body {
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+form.todo-input, li {
+    list-style: none;
+    padding: 3px;
+}
+
+h1 { 
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: rgba(240, 128, 128, 0.646);
+    font-size: 125px;
+    font-weight: 100;
+}
+/* ****************** */
+input { 
+    min-width: 29%; 
+    border-bottom: 1px solid teal;
+    margin: 0;
+    padding: 2px;
+    font-size: 1.5rem;
+    margin-left: 3px;
+}
+
+div.todo {
+    /* border: 1px solid teal; */
+    margin: 0;
+    min-width: 30%;
+}
+
+form button {
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: white;
+}
+form button {
+    color: #ff6f47;
+    background: #f7fffe;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+form button:hover {
+    background: #ff6f47;
+    color: white;
+}
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.todo-list {
+    min-width: 30%;
+    list-style: none;
+    border: 1px solid teal;
+}
+  
+.todo {
+  margin: 0.5rem;
+  background: white;
+  font-size: 1.5rem;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* transition: all 1s ease; */
+}
+.filter-todo {
+  padding: 1rem;
+}
+
+.todo li {
+  flex: 1;
+}
+  
+.trash-btn {
+  background:  rgba(240, 128, 128, 0.646);
+  color: black;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.complete-btn {
+  background:teal;
+}
+.todo-item {
+  border-bottom: 1px solid teal;
+  padding: 10px;
+  margin-left: 2px;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.fall {
+  transform: translateY(10rem) rotateZ(20deg);
+  opacity: 0;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.counter {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  /* border: 1px solid teal; */
+  padding: 3px;
+  font-size: 1.5rem;
+  min-width: 30%;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30%;
+}
+
+div.counting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30%;
+  margin: 0;
+  margin-left: 2px;
+}
+
+/* .heading {
+  border: 1px solid teal;
+} */

@@ -1,26 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import Heading from "./Heading";
+import Form from "./Form";
+import TodoList from "./TodoList";
+import Count from "./Count";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
+	const [inputText, setInputText] = useState("");
+	const [todos, setTodos] = useState([]);
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="heading">
+			<Heading />
+			<div className="body">
+				<Form inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText} />
+				<TodoList setTodos={setTodos} todos={todos} />
+				{/* <Count setTodos={setTodos} todos={todos}/> */}
+			</div>
 		</div>
-	);
+	)
 };
 
 export default Home;
