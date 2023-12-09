@@ -13,7 +13,7 @@ const Home = () => {
 			<div className="body">
 				<Form inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText} />
 				<TodoList setTodos={setTodos} todos={todos} />
-				{/* <Count setTodos={setTodos} todos={todos}/> */}
+				<Count setTodos={setTodos} todos={todos}/>
 			</div>
 		</div>
 	)

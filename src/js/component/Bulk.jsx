@@ -1,29 +1,74 @@
-import React from "react";
-
+import React, { useEffect } from "react";
 
 //create your first component
 const Bulk = ({input, setInput}) => {
-	fetch('https://playground.4geeks.com/apis/fake/todos/user/klbailey', {
-      method: "PUT",
-      body: JSON.stringify(todos),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(resp => {
-        console.log(resp.ok); // Will be true if the response is successful
-        console.log(resp.status); // The status code=200 or code=400 etc.
-        console.log(resp.text()); // Will try to return the exact result as a string
-        return resp.json(); // (returns promise) Will try to parse the result as JSON and return a promise that you can .then for results
-    })
-    .then(data => {
-        // Here is where your code should start after the fetch finishes
-        console.log(data); // This will print on the console the exact object received from the server
-    })
-    .catch(error => {
-        // Error handling
-        console.log(error);
-    });
+    const userURL = "https://playground.4geeks.com/apis/fake/todos/user/klbailey";
+
+    //Get todos
+    const getTodos = () => {
+        fetch(userURL)
+        //validate reponse
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                // Read the response as JSON
+                return response.json();
+            })            
+            .then(response => console.log('Success:', response))
+            .catch(error => console.error(error));
+    };
+
+    //deleted task update/put on API
+    const remTask = (index) => {
+		let remItem = todoList.filter((item, i) => i != index);
+		setTodoList(removeItem);
+		updateAPI(remItem);
+	};
+
+    //Add new task/update API
+    function updateAPI(newList) {
+		fetch(userURL, {
+			method: 'PUT', // or 'POST'
+            body: JSON.stringify(data), // data can be a 'string' or an {object} which comes from somewhere further above in our application
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => {
+            if (!res.ok) throw Error(res.statusText);
+            return res.json();
+        })
+        .then(response => console.log('Success:', response))
+        .catch(error => console.error(error));
+	}
+    
+    useEffect(() => {
+        getTodos();
+    }, []);
+
+    //****************************I need to map it?
+
+    return (
+		<div>
+			<div>
+				<input
+					type="text"
+					className="item userInput"
+					onKeyDown={handleKeyPress}
+					value={listItem.label}
+					onChange={(e) =>
+						setListItem({ ...listItem, label: e.target.value })
+					}
+					placeholder="What needs to be done?"
+				/>
+			</div>
+			<div>
+				<ul>{todo}</ul>
+			</div>
+			<div> {todo.length} items left</div>
+		</div>
+	);
 };
 
 export default Bulk;
